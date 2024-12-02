@@ -21,12 +21,17 @@ print(deaths_malaysia.head())
 # Convert the 'date' column to a datetime object
 deaths_malaysia['date'] = pd.to_datetime(deaths_malaysia['date'])
 
+# Calculate the overall total deaths
+overall_total_deaths = deaths_malaysia['deaths_new'].sum()
+print("\nTotal Deaths in Malaysia as of 16 Nov 2024: ", overall_total_deaths)
+
 # Define the outbreak periods and their date ranges
 outbreak_periods = {
     'Wuhan (17/3/2020 - 31/8/2020)': ('2020-03-17', '2020-08-31'),
     'Beta (1/9/2020 - 31/3/2021)': ('2020-09-01', '2021-03-31'),
     'Delta (1/4/2021 - 31/1/2022)': ('2021-04-01', '2022-01-31'),
-    'Omicron (1/2/2022 - 30/4/2022)': ('2022-02-01', '2022-04-30')
+    'Omicron (1/2/2022 - 31/3/2022)': ('2022-02-01', '2022-03-31'), 
+    'Endemic Phase (1/4/2022 - 16/11/2024)': ('2022-04-01', '2024-11-16')
 }
 
 # Calculate the total number of deaths for each period
@@ -35,16 +40,11 @@ for period, (start_date, end_date) in outbreak_periods.items():
     mask = (deaths_malaysia['date'] >= start_date) & (deaths_malaysia['date'] <= end_date)
     total_deaths[period] = deaths_malaysia.loc[mask, 'deaths_new'].sum()
 
-# Calculate the overall total deaths
-overall_total_deaths = deaths_malaysia['deaths_new'].sum()
-print("\nTotal Deaths in Malaysia as of 16 Nov 2024: ", overall_total_deaths)
-
 # Create a DataFrame to display the results
 summary_df = pd.DataFrame(list(total_deaths.items()), columns=['Variant Period', 'Total Deaths'])
 
 # Add a percentage column to the summary DataFrame
-summary_df['Percentage of Total (%)'] = (summary_df['Total Deaths'] / overall_total_deaths) * 100
+summary_df['Percentage (%)'] = (summary_df['Total Deaths'] / overall_total_deaths) * 100
 
 # Display the summary table
 print(summary_df)
-
