@@ -23,6 +23,8 @@
 3. cumulative_deaths: successive addition of monthly deaths due to COVID-19 
 4. cases_new: monthly new cases of COVID-19 reported in year_month
 5. CFR: monthly case fatality rate in percentage
+6. year: yyyy format
+7. death_rate: monthly death rate per 100,000 population
 ### deaths_vaccination_status.csv
 1. year_month: yyyy-mm format
 2. deaths_unvax: monthly number of unvaccinated individuals who died due to COVID-19 reported in year_month
