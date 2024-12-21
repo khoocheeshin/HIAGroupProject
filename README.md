@@ -2,7 +2,6 @@
 ## Title: Descriptive Statistics of COVID-19 Death in Malaysia from 1 April 2021 to 30 November 2024
 ### COVID-19 data files extracted 
 (from MoH-Malaysia/covid19-public)
-+ cases_malaysia.csv: Daily recorded COVID-19 cases at country level.
 + deaths_malaysia.csv: Daily deaths due to COVID-19 at country level.
 + linelist_deaths.csv: List containing relevant clinical, demographic and vaccination information for each death reported.
 ### Population data files extracted
@@ -19,12 +18,11 @@
 ## Metadata for Variables
 ### deaths_trend.csv
 1. year_month: yyyy-mm format
-2. deaths_new: monthly deaths due to COVID-19 reported in year_month
-3. cumulative_deaths: successive addition of monthly deaths due to COVID-19 
-4. cases_new: monthly new cases of COVID-19 reported in year_month
-5. CFR: monthly case fatality rate in percentage
-6. year: yyyy format
-7. death_rate: monthly death rate per 100,000 population
+2. deaths_new: monthly deaths due to COVID-19 reported in year_month 
+3. total_pop: annual total population
+4. year: yyyy format
+5. death_rate: monthly death rate per 100,000 population
+6. cumulative_deaths: successive addition of monthly deaths due to COVID-19
 ### deaths_vaccination_status.csv
 1. year_month: yyyy-mm format
 2. deaths_unvax: monthly number of unvaccinated individuals who died due to COVID-19 reported in year_month
